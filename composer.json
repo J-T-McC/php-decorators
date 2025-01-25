@@ -1,0 +1,28 @@
+{
+  "name": "php-decorator/decorator",
+  "description": "PHP Decorator Pattern",
+  "type": "library",
+  "license": "MIT",
+  "version": "0.1.0",
+  "require": {
+    "php": ">=8.2.0"
+  },
+  "psr-4": {
+    "PhpDecorator\\": "src/",
+    "Tests\\": "tests/"
+  },
+  "autoload": {
+    "psr-4": { "PhpDecorator\\": "src/", "Tests\\": "tests/" }
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "require-dev": {
+    "pestphp/pest": "^3.7",
+    "mockery/mockery": "^1.6",
+    "phpstan/phpstan": "^2.1",
+    "friendsofphp/php-cs-fixer": "^3.68"
+  }
+}
