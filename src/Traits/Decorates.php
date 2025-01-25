@@ -59,7 +59,7 @@ trait Decorates
      */
     private function handleParentCall(string $name, array $arguments): mixed
     {
-        while ($parentClass = get_parent_class($this)) {
+        if ($parentClass = get_parent_class($this)) {
             $parentReflection = new ReflectionClass($parentClass);
 
             if ($parentReflection->hasMethod('__call')) {

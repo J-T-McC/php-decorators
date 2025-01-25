@@ -4,6 +4,11 @@
   "type": "library",
   "license": "MIT",
   "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Tyson McCarney"
+    }
+  ],
   "require": {
     "php": ">=8.2.0"
   },
@@ -12,7 +17,10 @@
     "Tests\\": "tests/"
   },
   "autoload": {
-    "psr-4": { "PhpDecorator\\": "src/", "Tests\\": "tests/" }
+    "psr-4": {
+      "PhpDecorator\\": "src/",
+      "Tests\\": "tests/"
+    }
   },
   "config": {
     "allow-plugins": {
