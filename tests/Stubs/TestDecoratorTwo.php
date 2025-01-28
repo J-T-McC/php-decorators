@@ -12,6 +12,6 @@ class TestDecoratorTwo implements Decorator
             return null;
         }
 
-        return fn () => $next();
+        return $next();
     }
 }

@@ -32,9 +32,11 @@ trait Decorates
             throw new BadMethodCallException(sprintf('Call to protected method %s::%s()', static::class, $name));
         }
 
+        // build the chain starting with the original method (executed last)
         $callable = fn () => $this->{$name}(...$arguments);
         $callable = $this->applyDecorators($name, $arguments, $callable);
 
+        // execute the chain of functions
         return $callable();
     }
 
@@ -82,7 +84,7 @@ trait Decorates
         array $arguments,
         callable $callable
     ): callable {
-        foreach ($this->decoratorAttributes as $attribute) {
+        foreach (array_reverse($this->decoratorAttributes) as $attribute) {
             /** @var Decorator $decorator */
             $decorator = $attribute->getArguments()[0];
 
@@ -94,7 +96,7 @@ trait Decorates
                 $decorator = new $decorator();
             }
 
-            $callable = $decorator->handle($this, $name, $arguments, $callable);
+            $callable = fn() => $decorator->handle($this, $name, $arguments, $callable);
         }
 
         return $callable;

@@ -12,6 +12,6 @@ class TestDecoratorOne implements Decorator
             return null;
         }
 
-        return fn () => $next();
+        return $next();
     }
 }
